@@ -10,33 +10,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// A User should have unique email, strong password, full name, age, address, employment, job and image fields for them to upload passport or national identity card
+// A Normal User should have unique email, strong password, full name, age, address, employment, job and image fields for them to upload passport or national identity card
 // A User can also be approved or rejected by the admin
+// A User can also be an admin
+// Admin only need to have email and password
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   password  String
-  fullName  String
-  age       Int
-  address   String
-  employment String
-  job       String
-  imageFront String
-  imageBack  String
-  imageType  ImageType
+  fullName  String?
+  age       Int?
+  address   String?
+  employment String?
+  job       String?
+  imageFront String?
+  imageBack  String?
+  imageType  ImageType?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  approved  Boolean  @default(false)
+  status    UserStatus? @default(PENDING)
   role     Role     @default(USER)
-}
-
-model Admin {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  role      Role     @default(ADMIN)
 }
 
 enum Role {
@@ -47,4 +40,10 @@ enum Role {
 enum ImageType {
   PASSPORT
   NATIONAL_IDENTITY_CARD
+}
+
+enum UserStatus {
+  APPROVED
+  REJECTED
+  PENDING
 }

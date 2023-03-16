@@ -1,13 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { S3 } from 'aws-sdk';
 import { v4 as uuid } from 'uuid';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class S3Service {
   private readonly s3: S3;
 
-  constructor() {
-    this.s3 = new S3();
+  constructor(private readonly config: ConfigService) {
+    this.s3 = new S3({
+      accessKeyId: config.get('S3_ACCESS_KEY_ID'),
+      secretAccessKey: config.get('S3_SECRET_ACCESS_KEY'),
+      region: config.get('S3_REGION'),
+    });
   }
 
   async uploadPublicFile(dataBuffer: Buffer, filename: string) {

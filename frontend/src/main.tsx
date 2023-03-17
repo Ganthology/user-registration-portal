@@ -8,6 +8,7 @@ import Login from './routes/login';
 import UserList from './routes/user-list';
 import UserProfile from './routes/user-profile';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Register from './routes/register';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/register',
-    element: <Login />,
+    element: <Register />,
   },
   {
     path: '/user/list',

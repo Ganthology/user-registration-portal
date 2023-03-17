@@ -96,9 +96,11 @@ export class AuthService {
 
     delete user.password;
 
+    const token = await this.signToken(user.id, user.email);
+
     return {
-      ...this.signToken(user.id, user.email),
       user,
+      ...token,
     };
   }
 

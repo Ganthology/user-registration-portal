@@ -94,7 +94,12 @@ export class AuthService {
 
     if (!passwordMatches) throw new ForbiddenException(`Password is incorrect`);
 
-    return this.signToken(user.id, user.email);
+    delete user.password;
+
+    return {
+      ...this.signToken(user.id, user.email),
+      user,
+    };
   }
 
   // Generate JWT token

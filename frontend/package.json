@@ -6,16 +6,39 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:build": "docker build -t frontend:latest .",
+    "docker:start": "docker run -p 3000:3000 frontend:latest"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@mantine/core": "^6.0.2",
+    "@mantine/dropzone": "^6.0.2",
+    "@mantine/hooks": "^6.0.2",
+    "@mantine/notifications": "^6.0.2",
+    "@tanstack/react-query": "^4.26.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.5",
+    "react-router-dom": "^6.9.0",
+    "vite-plugin-ssr": "^0.4.94",
+    "zustand": "^4.3.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
+    "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
   }

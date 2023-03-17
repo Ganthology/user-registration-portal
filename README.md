@@ -12,4 +12,16 @@ Ensure that you have the following installed on your system:
 - npm (v6.x or higher)
 - Docker (v20.10.x or higher)
 
+## Tech Stack
+- NestJS
+- ViteJS
+- ReactJS
+- Prisma
+- PostgreSQL / Supabase
+- AWS S3
+- TypeScript
+- MantineUI
+- TailwindCSS
+- Docker
+
 [User Stories, Use Case and Class Diagram](https://wild-cobbler-f62.notion.site/Regov-63ea5077e4f442c88a1b958a1b944e40)
